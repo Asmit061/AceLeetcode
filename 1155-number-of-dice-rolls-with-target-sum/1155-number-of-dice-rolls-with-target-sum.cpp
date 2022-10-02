@@ -11,9 +11,10 @@ public:
                 return dp[n][target];
         int count=0;
         for(int i=1;i<target&&i<=k;i++){
-                count=(count%mod + rec(n-1,k,target-i)%mod)%mod;
+            count=(count%mod + rec(n-1,k,target-i)%mod)%mod;
+            dp[n][target]=count;
         }
-        dp[n][target]=count;
+        
         return count;
     }
     int numRollsToTarget(int n, int k, int target) {
