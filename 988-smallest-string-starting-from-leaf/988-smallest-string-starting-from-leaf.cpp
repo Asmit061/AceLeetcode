@@ -12,19 +12,18 @@
 class Solution {
 public:
     priority_queue<string,vector<string>,greater<string>> pq;
-    void dfs(TreeNode* root,string &temp){
+    void dfs(TreeNode* root,string temp){
         if(root==NULL)
             return;
-        temp += root->val+'a';
         if(!root->left&&!root->right)
         {
+            temp+=char(root->val+'a');
             reverse(temp.begin(),temp.end());
             pq.push(temp);
             reverse(temp.begin(),temp.end());
         }
-        dfs(root->left,temp);
-        dfs(root->right,temp);
-        temp.pop_back();
+        dfs(root->left,temp+char(root->val+'a'));
+        dfs(root->right,temp+char(root->val+'a'));
     }
     string smallestFromLeaf(TreeNode* root) {
         string temp="";
