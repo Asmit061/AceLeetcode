@@ -24,7 +24,7 @@ public:
         }
         dfs(root->left,temp);
         dfs(root->right,temp);
-        temp.erase(temp.end()-1);
+        temp.pop_back();
     }
     string smallestFromLeaf(TreeNode* root) {
         string temp="";
