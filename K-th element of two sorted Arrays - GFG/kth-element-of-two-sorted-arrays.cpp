@@ -12,7 +12,7 @@ class Solution{
             return kthElement(arr2,arr1,m,n,k);
         int low=max(0,k-m), high=min(k,n);
         while(low<=high){
-            int cut1=(low+high)>>1, cut2=k-cut1;
+            int cut1=(low+high)/2, cut2=k-cut1;
             int l1=cut1==0?INT_MIN:arr1[cut1-1];
             int l2=cut2==0?INT_MIN:arr2[cut2-1];
             int r1=cut1==n?INT_MAX:arr1[cut1];
